@@ -1,0 +1,16 @@
+body{
+    background-color: rgb(20, 20, 20);
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+
+}
+div {
+    display: inline-flex;
+    text-align: center;
+    align-content: center;
+}
+div h2{
+    color: rgb(200, 233, 15);
+}
+
+
+
