@@ -1,6 +1,6 @@
 class cat {
     constructor(nombre,cansancio,hambre,soledad,felicidad){
-        this.name = nombre;
+        this.nombre = nombre;
         this.tiredness = cansancio;
         this.hunger = hambre;
         this.lonliness = soledad;
@@ -32,24 +32,25 @@ class cat {
         
     }
     MostrarCansancio() {
-        if(this.tiredness<5){
-            console.log(this.nombre + " está cansado.");
-        }
-        if(this.tiredness>8){
-            console.log(this.nombre + " está muy cansado.");
-        }
         if(this.tiredness<3){
             console.log(this.nombre + " no está cansado.");
-        }    
+        } 
+        if(this.tiredness>=4 && this.tiredness<=7){
+            console.log(this.nombre + " está cansado.");
+        }
+        if(this.tiredness>=8){
+            console.log(this.nombre + " está muy cansado.");
+        }
+   
     }
+
     MostrarNombre(){
         console.log(this.nombre);
     }
 
-
 }
 
-let gato1 = new cat("Patitas", 7,3,4,10);
+let gato1 = new cat ("Patitas", 8, 3, 4, 10);
 
-gato1.MostrarCansancio;
-gato1.MostrarNombre;
+gato1.MostrarNombre();
+gato1.MostrarCansancio();

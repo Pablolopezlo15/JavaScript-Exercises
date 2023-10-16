@@ -20,6 +20,7 @@ class Book{
         this.Author = Author;
         this.Read = Read;
         this.ReadDate = ReadDate;
+        
     }
 
     add(Title,Genre,Author){
