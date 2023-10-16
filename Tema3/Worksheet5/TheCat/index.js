@@ -1,5 +1,6 @@
 class cat {
-    constructor(tiredness,hunger,lonliness,happiness){
+    constructor(nombre,cansancio,hambre,soledad,felicidad){
+        this.name = nombre;
         this.tiredness = cansancio;
         this.hunger = hambre;
         this.lonliness = soledad;
@@ -7,15 +8,48 @@ class cat {
     }
     
     feed(){
-        return this.hunger-1;
+        this.hunger-1;
     }
-
+   
     sleep(){
-        return this.tiredness-1;
+        this.tiredness-1;
     }
 
     pet(){
-        return this.lonliness-1;
+        this.lonliness-1;
     }
 
+    MostrarHambre() {
+        if(this.hunger<5){
+            console.log(this.nombre + " tiene hambre.");
+        }
+        if(this.hunger>8){
+            console.log(this.nombre + " tiene mucha hambre.");
+        }
+        if(this.hunger<3){
+            console.log(this.nombre + " no tiene hambre.");
+        }
+        
+    }
+    MostrarCansancio() {
+        if(this.tiredness<5){
+            console.log(this.nombre + " está cansado.");
+        }
+        if(this.tiredness>8){
+            console.log(this.nombre + " está muy cansado.");
+        }
+        if(this.tiredness<3){
+            console.log(this.nombre + " no está cansado.");
+        }    
+    }
+    MostrarNombre(){
+        console.log(this.nombre);
+    }
+
+
 }
+
+let gato1 = new cat("Patitas", 7,3,4,10);
+
+gato1.MostrarCansancio;
+gato1.MostrarNombre;
