@@ -21,4 +21,9 @@ class Book{
         this.Read = Read;
         this.ReadDate = ReadDate;
     }
+
+    add(){
+        new Book();
+        
+    }
 }
