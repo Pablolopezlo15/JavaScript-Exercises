@@ -22,8 +22,8 @@ class Book{
         this.ReadDate = ReadDate;
     }
 
-    add(){
-        new Book();
-        
+    add(Title,Genre,Author){
+        new Book(Title,Genre,Author,false,null);
     }
 }
+
