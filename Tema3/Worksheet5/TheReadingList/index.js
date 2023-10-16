@@ -6,7 +6,13 @@ class BookList{
         this.NextBook = NextBook;
         this.CurrentBook = CurrentBook;
         this.LastBook = LastBook;
-        this.AllBooks = AllBooks;
+        this.AllBooks = [];
+
+    }
+    add(Book){
+        new Book(Title,Genre,Author,false,null);
+    }
+    finishCurrentBook(){
 
     }
 }
@@ -20,11 +26,9 @@ class Book{
         this.Author = Author;
         this.Read = Read;
         this.ReadDate = ReadDate;
-        
-    }
-
-    add(Title,Genre,Author){
-        new Book(Title,Genre,Author,false,null);
     }
 }
 
+add("Don Quijote", "Aventura", "Miguel de Cervantes");
+
+console.log();
