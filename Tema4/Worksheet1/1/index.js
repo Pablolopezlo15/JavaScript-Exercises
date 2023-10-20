@@ -1,10 +1,10 @@
 function asociarEventos() {
-    const btn = document.querySelector("button");
-
-    btn.addEventListener("click", mandarAlert);
-    
+    const body = document.querySelector("body");
+    body.addEventListener("click", mandarAlert);
 }
 
-function mandarAlert(){
+function mandarAlert() {
     alert("¡Has pulsado al boton!")
 }
+
+
