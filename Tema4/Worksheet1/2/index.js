@@ -1,10 +1,13 @@
 function asociarEventos() {
-    const btn = document.querySelector("button");
+    const html = document.querySelector("html");
 
-    btn.addEventListener("click", mostrarPos);
+    html.addEventListener("mousemove", mostrarPos);
     
 }
 
-function mostrarPos(){
-    alert("")
+function mostrarPos(e){
+    let x = e.clientX;
+    let y = e.clientY;
+    let coordenadas = "Coordenadas: (" + x + "," + y + ")";
+    console.log(coordenadas);
 }
