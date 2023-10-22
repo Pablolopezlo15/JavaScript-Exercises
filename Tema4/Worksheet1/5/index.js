@@ -5,7 +5,7 @@ function asociarEventos() {
 }
 
 
-function pintar(e) {
+function borrar(e) {
     if(e.ctrlKey) {
         e.target.style.backgroundColor = "red";
     }
