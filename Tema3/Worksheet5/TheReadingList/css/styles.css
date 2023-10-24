@@ -42,7 +42,9 @@ div input {
   border: 1px solid #ccc;
   border-radius: 4px;
 }
-  
+select option {
+    
+}
 
   
 .pointer{
