@@ -78,14 +78,15 @@ function asociarEventos() {
     nuevoLibro.addEventListener("click", añadirLibro);
 }
 function nuevaLibreria() {
-    
+    const nombre = document.getElementById("form2").nombreLibreria;
+    nombre = new BookList();
+
 }
 function añadirLibro() {
     const titulo = document.getElementById("form").titulo;
     const genero = document.getElementById("form").genero;
     const autor = document.getElementById("form").autor;
     let contador;
-    Lista1 = new BookList();
     for(i = 0; i < this.AllBooks.length; i++){
         contador++;
     }

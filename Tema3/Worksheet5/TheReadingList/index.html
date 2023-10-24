@@ -9,7 +9,20 @@
     <script src="index.js"></script>
 </head>
 <body>
-    <form>
+    <form id="form2">
+        <section>
+            <article>
+                <div>
+                    <label for="nombreLibreria">Nombre</label>
+                    <input type="text" name="nombreLibreria" id="nombreLibreria">
+                </div>
+                <div>
+                    <input type="submit" class="pointer" id="nuevaLibreria" value="Nueva Libreria" id="nuevalibreria">
+                </div>
+            </article>
+        </section>
+    </form>
+    <form id="form">
         <section>
             <article>
         <div>
@@ -25,24 +38,15 @@
             <input type="text" name="genero"><br>
         </div>
         <div>
+            <select name="librerias" id="librerias">
+                <option value="Libreria1">Libreria1</option>
+                <option value="Libreria2">Libreria2</option>
+            </select>
             <input type="submit" class="pointer" id="nuevolibro" value="Nuevo Libro">
         </div>
               </form>
             </article>
           </section>
-    </form>
-    <form>
-        <section>
-            <article>
-                <div>
-                    <label for="nombreLibreria">Nombre</label>
-                    <input type="text" name="nombreLibreria" id="nombreLibreria">
-                </div>
-                <div>
-                    <input type="submit" class="pointer" id="nuevaLibreria" value="Nueva Libreria" id="nuevalibreria">
-                </div>
-            </article>
-        </section>
     </form>
 </body>
 </html>

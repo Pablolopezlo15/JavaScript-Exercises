@@ -30,3 +30,14 @@ window.onload = () => {
 imagen.addEventListener("mousemove", mostrarPos);
 
 }
+
+
+imagenes.array.forEach(imagen => {
+  imagen.addEventListener("click", (event)=> {
+    mueveImagen = !mueveImagen;
+    imagenSeleccionada = event.target;
+    offsetLeft = event.clientX - event.target.offsetLeft;
+    offsetTop = event.clientY - event.target.offsetTop;
+
+  })
+});
