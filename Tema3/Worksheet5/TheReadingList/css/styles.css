@@ -1,6 +1,52 @@
 body {
     background-color: grey;
 }
-form {
-    align-content: center;
+
+form{
+    margin-top: 4% ;
+    margin-left: 8%;
+}
+
+section {
+    width: 600px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-shadow: 2px 2px 8px rgba(0,0,0,0.1);
+    margin: 10px;
+  }
+  
+section article {
+    background-color: gray;
+    padding: 16px;
+    width: 550px;
+    text-align: center;
+}
+    
+div {
+    margin-bottom: 10px;
+}
+  
+div label {
+    display: flex;
+    margin-left: 5%;
+    font-size: 14px;
+    color: #333;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  
+div input {
+  width: 85%;
+  padding: 8px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+  
+
+  
+.pointer{
+    width: 25%;
+
+  cursor: pointer;
 }

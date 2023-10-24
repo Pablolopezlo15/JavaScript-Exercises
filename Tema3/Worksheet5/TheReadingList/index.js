@@ -58,17 +58,37 @@ class Book{
 }
 
 
-Lista1 = new BookList();
-Libro1 = new Book("Don Quijote", "Aventura", "Miguel de Cervantes",false);
-Libro2 = new Book("El Señor de los Anillos", "Ficción", "J.R.R Tolkien", false);
-Libro3 = new Book("Libro1", "Ficción", "J.R.R Tolkien", false);
-Libro4 = new Book("Libro2", "Ficción", "J.R.R Tolkien", false);
-Libro5 = new Book("Libro3", "Ficción", "J.R.R Tolkien", false);
-Lista1.add(Libro1);
-Lista1.add(Libro2);
-Lista1.add(Libro3);
+//Lista1 = new BookList();
+//Libro1 = new Book("Don Quijote", "Aventura", "Miguel de Cervantes",false);
+//Libro2 = new Book("El Señor de los Anillos", "Ficción", "J.R.R Tolkien", false);
+//Libro3 = new Book("Libro1", "Ficción", "J.R.R Tolkien", false);
+//Libro4 = new Book("Libro2", "Ficción", "J.R.R Tolkien", false);
+//Libro5 = new Book("Libro3", "Ficción", "J.R.R Tolkien", false);
+//Lista1.add(Libro1);
+//Lista1.add(Libro2);
+//Lista1.add(Libro3);
+//
+//Lista1.currentBook();
+//Lista1.finishCurrentBook();
+//Lista1.currentBook();
+//console.log(Lista1.AllBooks);
 
-Lista1.currentBook();
-Lista1.finishCurrentBook();
-Lista1.currentBook();
-console.log(Lista1.AllBooks);
+function asociarEventos() {
+    const nuevoLibro = document.getElementById("nuevolibro");
+    nuevoLibro.addEventListener("click", añadirLibro);
+}
+function nuevaLibreria() {
+    
+}
+function añadirLibro() {
+    const titulo = document.getElementById("form").titulo;
+    const genero = document.getElementById("form").genero;
+    const autor = document.getElementById("form").autor;
+    let contador;
+    Lista1 = new BookList();
+    for(i = 0; i < this.AllBooks.length; i++){
+        contador++;
+    }
+    libro = new Book(titulo, genero, autor);
+    Lista1.add(libro)
+}

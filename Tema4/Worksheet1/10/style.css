@@ -1,0 +1,7 @@
+#contenedor {
+    display: inline-flex;
+}
+
+img {
+    position: absolute;
+}
