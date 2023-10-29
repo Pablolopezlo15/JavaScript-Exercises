@@ -7,8 +7,8 @@
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-    <div class="flip-card"><!-- Tarjeta credito -->
-        <div class="flip-card-inner">
+    <div class="flip-card" id="flip-card"><!-- Tarjeta credito -->
+        <div class="flip-card-inner" id="flip-card-inner">
             <div class="flip-card-front">
                 <p class="heading_8264">MASTERCARD</p>
                 <svg class="logo" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="36" height="36" viewBox="0 0 48 48">
@@ -62,27 +62,58 @@
                   OjU2KzAwOjAw0ssWdwAAACh0RVh0ZGF0ZTp0aW1lc3RhbXAAMjAyMy0wMi0xM1QwODoxOTo1Nisw
                   MDowMIXeN6gAAAAASUVORK5CYII="></image>
                 </svg>
-                <p class="number">9759 2484 5269 6576</p>
+                <p class="number" id="numerotarjeta"></p>
                 <p class="valid_thru">VALID THRU</p>
-                <p class="date_8264">1 2 / 2 4</p>
-                <p class="name">BRUCE WAYNE</p>
+                <p class="date_8264" id="mes"></p>
+                <p class="date_barra">/</p>
+                <p class="date_2" id="year"></p>
+                <p class="name" id="nameholders"></p>
             </div>
-            <div class="flip-card-back">
+            <div class="flip-card-back" id="flip-card-back">
                 <div class="strip"></div>
                 <div class="mstrip"></div>
                 <div class="sstrip">
-                  <p class="code">***</p>
+                  <p class="code" id="cvv">***</p>
                 </div>
             </div>
         </div>
     </div>
     <form>
         <label for="carnumber">Car Number</label>
-        <input type="text" name="carnumber"><br>
+        <input type="text" id="inputnumero" name="carnumber"><br>
         <label for="cardholders">Car Holders</label>
-        <input type="text" name="cardholders"><br>
-        <label for="expirationmonth">Expiration Date</label>
-        <input type="" name="expirationmonth" >
+        <input type="text" id="inputcardholders" name="cardholders"><br>
+        <label for="expirationdate">Expiration Date</label>
+        <select id="inputmes" name="expirationdate">
+            <option value="01">01</option>
+            <option value="02">02</option>
+            <option value="03">03</option>
+            <option value="04">04</option>
+            <option value="05">05</option>
+            <option value="06">06</option>
+            <option value="07">07</option>
+            <option value="08">08</option>
+            <option value="09">09</option>
+            <option value="10">10</option>
+            <option value="11">11</option>
+            <option value="12">12</option>
+        </select>
+        <select id="inputyear" name="expirationdate">
+            <option value="2020">2020</option>
+            <option value="2021">2021</option>
+            <option value="2022">2022</option>
+            <option value="2023">2023</option>
+            <option value="2024">2024</option>
+            <option value="2025">2025</option>
+            <option value="2026">2026</option>
+            <option value="2027">2027</option>
+            <option value="2028">2028</option>
+            <option value="2029">2029</option>
+            <option value="2030">2030</option>
+        </select>
+        <label for="cvv">CVV</label>
+        <input type="text" name="cvv" id="inputcvv"><br>
+        <input type="submit" name="" id="" value="Submit">
     </form>
     <script src="script.js"></script>
 </body>

@@ -55,6 +55,22 @@
     top: 13.6em;
     left: 3.2em;
   }
+
+  .date_barra {
+    position: absolute;
+    font-weight: bold;
+    font-size: 0.5em;
+    top: 13.6em;
+    left: 4.5em;
+  }
+
+  .date_2 {
+    position: absolute;
+    font-weight: bold;
+    font-size: 0.5em;
+    top: 13.6em;
+    left: 5em;
+  }
   
   .name {
     position: absolute;
@@ -102,7 +118,7 @@
   .code {
     font-weight: bold;
     text-align: center;
-    margin: .2em;
+    margin: -0.1em;
     color: black;
   }
   
@@ -115,10 +131,7 @@
     transform-style: preserve-3d;
   }
   
-  .flip-card:hover .flip-card-inner {
-    transform: rotateY(180deg);
-  }
-  
+
   .flip-card-front, .flip-card-back {
     box-shadow: 0 8px 14px 0 rgba(0,0,0,0.2);
     position: absolute;
@@ -145,7 +158,3 @@
 
 
 
-
-.flip-card {
-    
-}
