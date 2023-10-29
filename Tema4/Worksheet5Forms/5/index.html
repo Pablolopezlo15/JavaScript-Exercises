@@ -80,7 +80,8 @@
     </div>
     <form>
         <label for="carnumber">Car Number</label>
-        <input type="text" id="inputnumero" name="carnumber"><br>
+        <input type="text" id="inputnumero" name="carnumber" maxlength="20"><br>
+        <label for="carnumber" id="errortarjeta"></label><br>
         <label for="cardholders">Car Holders</label>
         <input type="text" id="inputcardholders" name="cardholders"><br>
         <label for="expirationdate">Expiration Date</label>
@@ -112,8 +113,9 @@
             <option value="2030">2030</option>
         </select>
         <label for="cvv">CVV</label>
-        <input type="text" name="cvv" id="inputcvv"><br>
-        <input type="submit" name="" id="" value="Submit">
+        <input type="text" name="cvv" id="inputcvv" maxlength="3"><br>
+        <label for="cvv" id="errorcvv"></label><br>
+        <input type="submit" name="enviar" id="enviar" value="Submit">
     </form>
     <script src="script.js"></script>
 </body>
