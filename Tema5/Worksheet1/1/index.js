@@ -1,13 +1,12 @@
 window.onload = () => {
+    console.log('Número de enlaces en la página: ' + contarEnlaces());
+}
 
-    
-
-
-
-
+function contarEnlaces() {
+    var enlaces = document.getElementsByTagName('a');
+    var contador = enlaces.length;
+    return contador;    
 }
 
 
-var enlaces = document.getElementsByTagName("a");
-var arrayenlaces = [].slice.call(enlaces);
-console.log(arrayenlaces)
+  
