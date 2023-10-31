@@ -1,40 +1,82 @@
-const usernameInput = document.getElementById("username");
-
-function validarMayuscula(valor) {
-    const errormayus = document.getElementById("errormayus");
-    if (/[A-Z]/.test(valor)) {
-        errormayus.style.color = "green";
-    } 
-    else {
-        errormayus.style.color = "red";
+document.getElementById("form").addEventListener("submit", function (e) {
+    e.preventDefault();
+    if (validateForm()) {
+        this.submit();
     }
-}
+});
 
-function validarMinúscula(valor) {
-    const errorminus = document.getElementById("errorminus");
-    if (/[a-z]/.test(valor)) {
-        errorminus.style.color = "green";
-    } 
-    else {
-        errorminus.style.color = "red";
+
+function validateForm() {
+    var name = document.getElementById("name").value;
+    var namelabelerr = document.getElementById("namelabelerr");
+    var apellidos = document.getElementById("apellidos").value;
+    var apellidoslabelerr = document.getElementById("apellidoslabelerr");
+    var telefono = document.getElementById("telefono").value;
+    var telflabelerr = document.getElementById("telflabelerr");
+
+    var email = document.getElementById("email").value;
+    var password = document.getElementById("password").value;
+    var repassword = document.getElementById("repassword").value;
+    var check2 = document.querySelector('input[name="check2"]').checked;
+    var telfRegex = /^\d{9}$/; 
+    var emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+    var nombreRegex= /^[a-zA-ZÑñÁáÉéÍíÓóÚúÜü\s]+$/;
+    var passRegex = /^[a-zA-Z0-9!@#$%^&*]{6,16}$/;
+    
+
+    if (name.trim() === "") {
+        console.log("Por favor, introduce nombre.");
+        namelabelerr.innerHTML = "Por favor, introduce nombre.";
+        namelabelerr.style.color = "red";
+        return false;
     }
-}
-
-function validarLongitud(valor) {
-    const errorlong = document.getElementById("errorlong");
-    if (valor.length >= 6) {
-        errorlong.style.color = "green";
-    } 
-    else {
-        errorlong.style.color = "red";
+    else if(!nombreRegex.test(name)) {
+        namelabelerr.innerHTML = "Contiene caracteres no válidos";
+        namelabelerr.style.color = "red";
+        console.log("Introduce nombre válido");
     }
-}
+    if (apellidos.trim() === "") {
+        console.log("Por favor, introduce apellidos.");
+        apellidoslabelerr.innerHTML = "Por favor, introduce apellidos.";
+        apellidoslabelerr.style.color = "red";
+        return false;
+    }
+    else if(!nombreRegex.test(apellidos)) {
+        apellidoslabelerr.innerHTML = "Contiene caracteres no válidos";
+        apellidoslabelerr.style.color = "red";
+        console.log("Introduce apellidos válidos");
+    }
+    if (telefono.trim() === "") {
+        console.log("Por favor, introduce telefono.");
+        telflabelerr.innerHTML = "Por favor, introduce número de teléfono.";
+        telflabelerr.style.color = "red";
+        return false;
+    }
+    else if (!telfRegex.test(telefono)) {
+        console.log("Por favor, introduce un teléfono válido de 9 dígitos.");
+        telflabelerr.innerHTML = "Por favor, introduce un teléfono válido de 9 dígitos.";
+        telflabelerr.style.color = "red";
+        return false;
+    }
+    if (!emailRegex.test(email)) {
+        console.log("Por favor, introduce un correo electrónico válido.");
+        emaillabelerr.innerHTML = "Por favor, introduce un teléfono válido de 9 dígitos.";
+        emaillabelerr.style.color = "red";
+        return false;
+    }
+    if (password.trim() === "") {
+        console.log("Por favor, introduce una contraseña.");
+        return false;
+    }
+    else if(!passRegex.test(password))
+    if (password !== repassword) {
+        console.log("Las contraseñas no coinciden.");
+        return false;
+    }
 
-function validar() {
-    const valor = usernameInput.value;
-    validarMayuscula(valor);
-    validarMinúscula(valor);
-    validarLongitud(valor);
+    if (!check2) {
+        console.log("Debes aceptar las políticas.");
+        return false;
+    }
+    return true;
 }
-
-usernameInput.addEventListener("keyup", validar);
