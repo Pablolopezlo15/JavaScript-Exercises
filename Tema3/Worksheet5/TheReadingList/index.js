@@ -44,6 +44,15 @@ class BookList{
 
         }
     }
+
+    numLibros(){
+        let contador;
+        for(i = 0; i < this.AllBooks.length; i++){
+            contador++;
+        }
+        return contador;
+    }
+
     
 }
 
@@ -74,22 +83,22 @@ class Book{
 //console.log(Lista1.AllBooks);
 
 function asociarEventos() {
-    const nuevoLibro = document.getElementById("nuevolibro");
+    nuevoLibro = document.getElementById("nuevolibro");
     nuevoLibro.addEventListener("click", añadirLibro);
+
+    nuevaLibreria = document.getElementById("nuevaLibreria");
+    nuevaLibreria.addEventListener("click", nuevaLibreria);
 }
 function nuevaLibreria() {
-    const nombre = document.getElementById("form2").nombreLibreria;
-    nombre = new BookList();
+    nombreLibreria = document.getElementById("nombreLibreria").value;
+    nombreLibreria = new BookList();
 
 }
 function añadirLibro() {
-    const titulo = document.getElementById("form").titulo;
-    const genero = document.getElementById("form").genero;
-    const autor = document.getElementById("form").autor;
-    let contador;
-    for(i = 0; i < this.AllBooks.length; i++){
-        contador++;
-    }
+    titulo = document.getElementById("titulo").value;
+    genero = document.getElementById("genero").value;
+    autor = document.getElementById("autor").value;
+
     libro = new Book(titulo, genero, autor);
     Lista1.add(libro)
 }

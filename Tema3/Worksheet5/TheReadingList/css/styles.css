@@ -1,54 +1,84 @@
+/* Estilo general del cuerpo de la página */
 body {
-    background-color: grey;
+  font-family: Arial, sans-serif;
+  background-color: #f2f2f2;
+  margin: 0;
+  padding: 0;
 }
 
-form{
-    margin-top: 4% ;
-    margin-left: 8%;
-    box-shadow: 6px 6px 15px 3px #000000;
-    width: 40%;
+/* Contenedor principal del formulario */
+h1 {
+  text-align: center;
+  color: #333;
+  margin-top: 5%;
+
 }
 section {
-    width: 104%;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-shadow: 2px 2px 8px rgba(0,0,0,0.1);
-  }
-  
-section article {
-    background-color: gray;
-    padding: 16px;
-    width: 95%;
-    text-align: center;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  margin-top: 10vh;
+  margin-left: 5vw;
+  padding: 20px;
+  width: 40vw;
+
 }
-    
-div {
-    margin-bottom: 10px;
+
+/* Estilo para etiquetas de formulario */
+label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
 }
-  
-div label {
-    display: flex;
-    margin-left: 5%;
-    font-size: 14px;
-    color: #333;
-    font-weight: bold;
-    margin-bottom: 20px;
-  }
-  
-div input {
-  width: 85%;
-  padding: 8px;
-  font-size: 14px;
+
+/* Estilo para los campos de entrada de texto */
+input[type="text"] {
+  width: 95%;
+  padding: 10px;
   border: 1px solid #ccc;
-  border-radius: 4px;
-}
-select option {
-    
+  border-radius: 5px;
+  margin-bottom: 15px;
+  font-size: 16px;
 }
 
-  
-.pointer{
-    width: 25%;
-
+/* Estilo para el botón */
+.pointer {
+  background-color: #3498db;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 16px;
   cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.pointer:hover {
+  background-color: #2980b9;
+}
+
+/* Estilo para el formulario */
+form {
+  margin: 0;
+}
+
+/* Estilo para el contenedor de selección y botón de envío */
+div.select-container {
+  display: flex;
+  align-items: center;
+}
+
+/* Estilo para el campo de selección */
+select {
+  width: 70%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  margin-right: 10px;
+}
+
+/* Estilo para el botón de envío */
+.pointer[type="submit"] {
+  width: 30%;
 }
