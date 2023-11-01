@@ -1,13 +1,108 @@
-* {
-    margin: 0;
-    padding: 0;
-}
+/* styles.css */
 
-body{
-    background-color: lightblue;
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    width: 100vw;
+    background-color: #f0f0f0;
 }
 
 form {
-    display: flexbox;
-    margin-top: 15%;
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    gap: 16px;
+    padding: 16px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+label {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+    width: 100%;
+}
+
+label span {
+    font-weight: bold;
+}
+
+label input {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+#form-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    padding: 0 10px;
+}
+
+#image-container {
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: -1;
+}
+
+#form {
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    width: 100%;
+}
+
+#form h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+#form label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+#form input[type="text"],
+#form input[type="email"],
+#form input[type="password"] {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+#form input[type="submit"] {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+}
+
+#form input[type="submit"]:hover {
+    background-color: #45a049;
+}
+
+#form input[type="checkbox"] {
+    margin-bottom: 15px;
+}
+
+#form label[id$="err"] {
+    color: red;
+    font-size: 14px;
+    margin-left: 5px;
 }
