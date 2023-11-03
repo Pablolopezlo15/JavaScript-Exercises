@@ -86,14 +86,16 @@ function asociarEventos() {
     nuevoLibro = document.getElementById("nuevolibro");
     nuevoLibro.addEventListener("click", añadirLibro);
 
-    nuevaLibreria = document.getElementById("nuevaLibreria");
-    nuevaLibreria.addEventListener("click", nuevaLibreria);
+    btnnewbooklist = document.getElementById("nuevaLibreria");
+    btnnewbooklist.addEventListener("click", nombreLibreria);
 }
-function nuevaLibreria() {
-    nombreLibreria = document.getElementById("nombreLibreria").value;
-    nombreLibreria = new BookList();
+
+function nombreLibreria() {
+    const nameLibreria = document.getElementById("nombreLibreria").value;
+    nameLibreria = new BookList();
 
 }
+
 function añadirLibro() {
     titulo = document.getElementById("titulo").value;
     genero = document.getElementById("genero").value;

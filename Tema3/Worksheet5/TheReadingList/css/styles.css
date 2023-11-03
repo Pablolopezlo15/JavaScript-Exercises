@@ -1,7 +1,7 @@
 /* Estilo general del cuerpo de la página */
 body {
   font-family: Arial, sans-serif;
-  background-color: #f2f2f2;
+  /*background-image: url(../img/madera.jpg);*/
   margin: 0;
   padding: 0;
 }
@@ -9,12 +9,11 @@ body {
 /* Contenedor principal del formulario */
 h1 {
   text-align: center;
-  color: #333;
+  color: #000000;
   margin-top: 5%;
 
 }
 section {
-  background-color: #fff;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   margin-top: 10vh;
@@ -26,6 +25,7 @@ section {
 
 /* Estilo para etiquetas de formulario */
 label {
+  color: rgb(0, 0, 0);
   display: block;
   font-weight: bold;
   margin-bottom: 5px;
