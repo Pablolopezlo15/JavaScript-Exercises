@@ -91,7 +91,7 @@ function asociarEventos() {
 }
 
 function nombreLibreria() {
-    const nameLibreria = document.getElementById("nombreLibreria").value;
+    nameLibreria = document.getElementById("nombreLibreria").value;
     nameLibreria = new BookList();
 
 }
