@@ -35,7 +35,7 @@ class BookList{
         this.AllBooks[this.CurrentBook].Read = true;
         this.CurrentBook++;
         this.NumReaded++;
-        this.ReadDate = Date();
+        this.ReadDate = new Date().toLocaleString();
     }
 
     nextBook(){
@@ -67,40 +67,69 @@ class Book{
 }
 
 
-//Lista1 = new BookList();
-//Libro1 = new Book("Don Quijote", "Aventura", "Miguel de Cervantes",false);
-//Libro2 = new Book("El Señor de los Anillos", "Ficción", "J.R.R Tolkien", false);
-//Libro3 = new Book("Libro1", "Ficción", "J.R.R Tolkien", false);
-//Libro4 = new Book("Libro2", "Ficción", "J.R.R Tolkien", false);
-//Libro5 = new Book("Libro3", "Ficción", "J.R.R Tolkien", false);
-//Lista1.add(Libro1);
-//Lista1.add(Libro2);
-//Lista1.add(Libro3);
-//
-//Lista1.currentBook();
-//Lista1.finishCurrentBook();
-//Lista1.currentBook();
-//console.log(Lista1.AllBooks);
+Lista1 = new BookList();
+
 
 function asociarEventos() {
     nuevoLibro = document.getElementById("nuevolibro");
     nuevoLibro.addEventListener("click", añadirLibro);
-
-    btnnewbooklist = document.getElementById("nuevaLibreria");
-    btnnewbooklist.addEventListener("click", nombreLibreria);
-}
-
-function nombreLibreria() {
-    nameLibreria = document.getElementById("nombreLibreria").value;
-    nameLibreria = new BookList();
-
+    mostrarListaDeLibros();
 }
 
 function añadirLibro() {
-    titulo = document.getElementById("titulo").value;
-    genero = document.getElementById("genero").value;
-    autor = document.getElementById("autor").value;
+    const titulo = document.getElementById("titulo").value;
+    const genero = document.getElementById("genero").value;
+    const autor = document.getElementById("autor").value;
+    const libro = new Book(titulo, genero, autor);
+    Lista1.add(libro);
+    mostrarListaDeLibros();
+}
 
-    libro = new Book(titulo, genero, autor);
-    Lista1.add(libro)
+function mostrarListaDeLibros() {
+    const bookListDiv = document.getElementById("bookList");
+    bookListDiv.innerHTML = ""; 
+
+    Lista1.AllBooks.forEach((book, num) => {
+
+        const bookInfo = document.createElement("div");
+        bookInfo.className = "book-entry"; 
+
+        if (book.Read) {
+            bookInfo.classList.add("read-yes"); 
+        } else {
+            bookInfo.classList.add("read-no"); 
+        }
+
+        bookInfo.innerHTML = `
+            <h2>${book.Title}</h2>
+            <p><strong>Género:</strong> ${book.Genre}</p>
+            <p><strong>Autor:</strong> ${book.Author}</p>
+            <p><strong>Leído:</strong> ${book.Read ? "Sí" : "No"}</p>
+            <p><strong>Fecha de lectura:</strong> ${book.ReadDate ? book.ReadDate : ""}</p>
+            <button id="leido" onclick="marcarComoLeido(${num})">Marcar como leído</button>
+            <button id="borrarlibro" onclick="eliminarLibro(${num})">Eliminar</button>
+        `;
+        bookListDiv.appendChild(bookInfo);
+
+    });
+}
+
+
+btneliminar = document.getElementById("borrarlibro");
+btneliminar.addEventListener("click", eliminarLibro);
+
+
+function marcarComoLeido(num) {
+    if (Lista1.AllBooks[num]) {
+        Lista1.AllBooks[num].Read = true;
+        Lista1.AllBooks[num].ReadDate = new Date().toLocaleString();
+        mostrarListaDeLibros(); 
+    }
+}
+
+function eliminarLibro(num) {
+    if (Lista1.AllBooks[num]) {
+        Lista1.AllBooks.splice(num, 1);
+        mostrarListaDeLibros(); 
+    }
 }
