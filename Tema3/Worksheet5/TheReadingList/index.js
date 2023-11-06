@@ -99,24 +99,29 @@ function mostrarListaDeLibros() {
         } else {
             bookInfo.classList.add("read-no"); 
         }
-
+        
         bookInfo.innerHTML = `
             <h2>${book.Title}</h2>
             <p><strong>Género:</strong> ${book.Genre}</p>
             <p><strong>Autor:</strong> ${book.Author}</p>
             <p><strong>Leído:</strong> ${book.Read ? "Sí" : "No"}</p>
             <p><strong>Fecha de lectura:</strong> ${book.ReadDate ? book.ReadDate : ""}</p>
-            <button id="leido" onclick="marcarComoLeido(${num})">Marcar como leído</button>
-            <button id="borrarlibro" onclick="eliminarLibro(${num})">Eliminar</button>
+            <button class="leido">Marcar como leído</button>
+            <button class="borrarlibro">Eliminar</button>
         `;
         bookListDiv.appendChild(bookInfo);
 
+        const marcarLeido = bookInfo.querySelector(".leido");
+        const borrarlibro = bookInfo.querySelector(".borrarlibro");
+
+        marcarLeido.addEventListener("click", () => marcarComoLeido(num));
+        borrarlibro.addEventListener("click", () => eliminarLibro(num));
+    
+    
     });
 }
 
 
-btneliminar = document.getElementById("borrarlibro");
-btneliminar.addEventListener("click", eliminarLibro);
 
 
 function marcarComoLeido(num) {
