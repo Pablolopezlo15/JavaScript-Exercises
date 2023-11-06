@@ -1,0 +1,111 @@
+var miCir;
+var player1;
+var player2;
+var score1 = 0;
+var score2 = 0;
+var posX = 500;
+var posY = 300;
+var velX = 2;
+var velY = 2;
+
+window.onload = () => {
+    miCir = document.getElementById("miCirculo");
+    player1 = document.getElementById("player1");
+    player2 = document.getElementById("player2");
+    svg = document.querySelector("svg");
+    svg.addEventListener("mousemove", player1FollowMouse);
+
+    document.addEventListener("keydown", player2KeyDown);
+    document.addEventListener("keyup", player2KeyUp);
+
+    setInterval(mueveCirculo, 1);
+}
+
+var player2Up = false;
+var player2Down = false;
+
+function mueveCirculo() {
+    var cx = posX;
+    var cy = posY;
+
+    if (cy < 15 || cy > 585) {
+        velY = -velY;
+    }
+
+    if (cx < 25 && cy >= parseInt(player1.getAttribute("y")) && cy <= (parseInt(player1.getAttribute("y")) + 80)) {
+        velX = -velX;
+    }
+
+    if (cx > 970 && cy >= parseInt(player2.getAttribute("y")) && cy <= (parseInt(player2.getAttribute("y")) + 80)) {
+        velX = -velX;
+    }
+
+    posX += velX;
+    posY += velY;
+
+    miCir.setAttribute("cx", posX);
+    miCir.setAttribute("cy", posY);
+
+    if (cx < 0) {
+        posX = 500;
+        posY = 300;
+        miCir.setAttribute("cx", posX);
+        miCir.setAttribute("cy", posY);
+        score2++;
+        document.getElementById("score2").textContent = score2;
+    }
+
+    if (cx > 1000) {
+        posX = 500;
+        posY = 300;
+        miCir.setAttribute("cx", posX);
+        miCir.setAttribute("cy", posY);
+        score1++;
+        document.getElementById("score1").textContent = score1;
+    }
+
+    if (player2Up) {
+        let y = parseInt(player2.getAttribute("y")) - 5;
+        if (y < 0) {
+            y = 0;
+        }
+        player2.setAttribute("y", y);
+    }
+
+    if (player2Down) {
+        let y = parseInt(player2.getAttribute("y")) + 5;
+        if (y > 520) {
+            y = 520;
+        }
+        player2.setAttribute("y", y);
+    }
+}
+
+function player1FollowMouse(e) {
+    let y = e.clientY -150;
+    if (y < 0) {
+        y = 0;
+    }
+    if (y > 520) {
+        y = 520;
+    }
+    player1.setAttribute("y", y);
+}
+
+function player2KeyDown(e) {
+    if (e.key === "Shift") {
+        player2Up = true;
+    }
+    if (e.key === "Control") {
+        player2Down = true;
+    }
+}
+
+function player2KeyUp(e) {
+    if (e.key === "Shift") {
+        player2Up = false;
+    }
+    if (e.key === "Control") {
+        player2Down = false;
+    }
+}

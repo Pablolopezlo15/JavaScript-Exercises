@@ -4,11 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <script src="svg.js"></script>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <svg height="100" width="500">
-        <circle cx="150" cy="50"></circle>
+    <svg width="1000" height="600">
+        <circle id="miCirculo" cx="50" cy="50" r="15" fill="blue" />
+        <rect id="player1" x="10" y="260" width="15" height="80" fill="red" />
+        <rect id="player2" x="975" y="260" width="15" height="80" fill="green" />
+        <text id="score1" x="100" y="30" font-size="24" fill="red">0</text>
+        <text id="score2" x="900" y="30" font-size="24" fill="green">0</text>
     </svg>
+    <script src="svg.js"></script>
+
 </body>
 </html>

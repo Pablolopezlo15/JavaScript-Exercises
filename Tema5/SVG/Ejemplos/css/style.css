@@ -1,0 +1,16 @@
+body{
+    background-color: rgb(33, 33, 33);
+
+}
+svg {
+    margin-top: 10vh;
+    margin-left: 15vw;
+    height: 600px;
+    width: 1000px;
+    border: 5px solid blue;
+    background-color: rgb(33, 33, 33);
+}
+
+#player2{
+    margin-left: 950px;
+}
