@@ -27,16 +27,18 @@ var player2Down = false;
 function mueveCirculo() {
     var cx = posX;
     var cy = posY;
+    var yplayer1 = parseInt(player1.getAttribute("y"));
+    var yplayer2 = parseInt(player2.getAttribute("y"));
 
     if (cy < 15 || cy > 585) {
         velY = -velY;
     }
 
-    if (cx < 25 && cy >= parseInt(player1.getAttribute("y")) && cy <= (parseInt(player1.getAttribute("y")) + 80)) {
+    if ((cx < 25 && cy >= yplayer1) && cy <= (yplayer1 + 80)) {
         velX = -velX;
     }
 
-    if (cx > 970 && cy >= parseInt(player2.getAttribute("y")) && cy <= (parseInt(player2.getAttribute("y")) + 80)) {
+    if ((cx > 970 && cy >= yplayer2) && cy <= (yplayer2 + 80)) {
         velX = -velX;
     }
 
@@ -65,7 +67,7 @@ function mueveCirculo() {
     }
 
     if (player2Up) {
-        let y = parseInt(player2.getAttribute("y")) - 5;
+        let y = yplayer2 - 5;
         if (y < 0) {
             y = 0;
         }
@@ -73,7 +75,7 @@ function mueveCirculo() {
     }
 
     if (player2Down) {
-        let y = parseInt(player2.getAttribute("y")) + 5;
+        let y = yplayer2 + 5;
         if (y > 520) {
             y = 520;
         }
