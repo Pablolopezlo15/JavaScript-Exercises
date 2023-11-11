@@ -21,6 +21,30 @@ window.onload = () => {
     setInterval(mueveCirculo, 1);
 }
 
+
+var gameInterval;
+
+function startGame() {
+    miCir = document.getElementById("miCirculo");
+    player1 = document.getElementById("player1");
+    player2 = document.getElementById("player2");
+    svg = document.querySelector("svg");
+    svg.addEventListener("mousemove", player1FollowMouse);
+
+    document.addEventListener("keydown", player2KeyDown);
+    document.addEventListener("keyup", player2KeyUp);
+
+    gameInterval = setInterval(mueveCirculo, 1);
+}
+
+document.addEventListener('DOMContentLoaded', (event) => {
+    const startButton = document.getElementById('startButton');
+
+    startButton.addEventListener('click', (event) => {
+        startGame();
+    });
+});
+
 var player2Up = false;
 var player2Down = false;
 
