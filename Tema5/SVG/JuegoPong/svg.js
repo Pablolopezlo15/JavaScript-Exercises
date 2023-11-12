@@ -12,38 +12,26 @@ window.onload = () => {
     miCir = document.getElementById("miCirculo");
     player1 = document.getElementById("player1");
     player2 = document.getElementById("player2");
-    svg = document.querySelector("svg");
-    svg.addEventListener("mousemove", player1FollowMouse);
+    body = document.querySelector("body");
+    startButton = document.getElementById('startButton');
 
+    body.addEventListener("mousemove", player1FollowMouse);
     document.addEventListener("keydown", player2KeyDown);
     document.addEventListener("keyup", player2KeyUp);
-
-    setInterval(mueveCirculo, 1);
+    startButton.addEventListener('click',  startGame);
 }
-
 
 var gameInterval;
 
 function startGame() {
-    miCir = document.getElementById("miCirculo");
-    player1 = document.getElementById("player1");
-    player2 = document.getElementById("player2");
-    svg = document.querySelector("svg");
-    svg.addEventListener("mousemove", player1FollowMouse);
-
-    document.addEventListener("keydown", player2KeyDown);
-    document.addEventListener("keyup", player2KeyUp);
-
+    score1 = 0;
+    score2 = 0;
+    document.getElementById("score1").textContent = score1;
+    document.getElementById("score2").textContent = score2;
+    clearInterval(gameInterval);
     gameInterval = setInterval(mueveCirculo, 1);
 }
 
-document.addEventListener('DOMContentLoaded', (event) => {
-    const startButton = document.getElementById('startButton');
-
-    startButton.addEventListener('click', (event) => {
-        startGame();
-    });
-});
 
 var player2Up = false;
 var player2Down = false;
@@ -54,15 +42,15 @@ function mueveCirculo() {
     var yplayer1 = parseInt(player1.getAttribute("y"));
     var yplayer2 = parseInt(player2.getAttribute("y"));
 
-    if (cy < 15 || cy > 585) {
+    if (cy < 10 || cy > 590) {
         velY = -velY;
     }
 
-    if ((cx < 25 && cy >= yplayer1) && cy <= (yplayer1 + 80)) {
+    if ((cx < 35 && cy >= yplayer1) && cy <= (yplayer1 + 80)) {
         velX = -velX;
     }
 
-    if ((cx > 970 && cy >= yplayer2) && cy <= (yplayer2 + 80)) {
+    if ((cx > 955 && cy >= yplayer2) && cy <= (yplayer2 + 80)) {
         velX = -velX;
     }
 
@@ -104,6 +92,11 @@ function mueveCirculo() {
             y = 520;
         }
         player2.setAttribute("y", y);
+    }
+
+    if (score1 === 10 || score2 === 10) {
+        clearInterval(gameInterval);
+        alert('Game Over');
     }
 }
 
