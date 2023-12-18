@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <h1>{{ nombre }}</h1>
+        <h2>{{ puntos }}</h2>
+        <button v-on:click="nombre='Pablo López'">Cambiar Nombre</button>
+        <button v-on:click="puntos++">Puntos +</button>
+        <input type="text" id="" v-model="nombre">
+    </div>
+
+<script>
+  const { createApp } = Vue
+
+  createApp({
+    data() {
+      return {
+        nombre: '',
+        puntos: 0
+      }
+    }
+  }).mount('#app')
+</script>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+</head>
+<body>
+    <div id="primeraNoticia">
+        <h1>Nocitia 1</h1>
+        <p>Lorem ipsum dolor sit am</p>
+    </div>
+    <div id="segundaNoticia">
+        <h1>Nocitia 2</h1>
+        <p>Lorem ipsum dolor sit am</p>
+    </div>
+    <div id="terceraNoticia">
+        <h1>Nocitia 3</h1>
+        <p>Lorem ipsum dolor sit am</p>
+    </div>
+    <button id="cambiarFuente">CambiarFuente</button>
+    <button id="boton">Reiniciar</button>
+    <button id="mostrar">Mostrar Titulos</button>
+    <script>
+        $(document).ready(function(){
+            $("#cambiarFuente").click(function(){
+                $("#primeraNoticia h1").css({"font-size": "20px"});
+                $("#segundaNoticia h1").css({"font-size": "40px"});
+                $("#terceraNoticia h1").css({"font-size": "80px"});
+            });
+         
+            $("h1").click(function(){
+                $(this).hide();
+            });
+
+            $("#mostrar").click(function(){
+                $("h1").show();
+
+            });
+
+            $("#boton").click(function(){
+                $("h1").css({"font-size": "30px"});
+
+            });
+
+            $("p").hover(function(){
+                $(this).css({"background-color": "yellow"});
+            });
+            $("p").mouseleave(function(){
+                $(this).css({"background-color": "white"});
+            });
+
+        });
+
+    </script>
+    
+</body>
+</html>

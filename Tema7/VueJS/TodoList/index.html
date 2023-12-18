@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo List</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+
+        .activeClass{
+            text-decoration: line-through;
+            color: green;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="app">
+        <div v-else>       
+            <label for="añadir">Añadir</label>     
+            <input type="text" v-model="newObject" @keyup.enter="añadirObjeto()">
+            <label for="filtrar">Filtrar</label>
+            <input type="checkbox" v-if="!mostrarFiltrar" @click="mostrarFiltrar=true" name="filtrar">
+            <input type="text" v-else name="filtrar" v-model="filtrar">
+        </div>
+        <p>Total: {{ total }}</p>
+        <button v-on:click="eliminarCompletadas()">Borrar Completadas</button>
+        <li v-bind:id="object" v-for="(object, index) in listaFiltrada" :key="object.fecha">
+            <div>
+                <span :class="{ activeClass: object.isActive }"> 
+                    {{ object.texto }} {{ object.fecha }} {{ object.prioridad }} 
+                </span>
+                <button v-on:click="marcarComoCompletada(object)">Completada</button> 
+                <button v-on:click="eliminarNota(object)">Eliminar</button>
+            </div>
+            <div>
+                <button v-on:click="cambiarPrioridadAlta(object)">Alta</button>
+                <button v-on:click="cambiarPrioridadMedia(object)">Media</button>
+                <button v-on:click="cambiarPrioridadBaja(object)">Baja</button>
+            </div>
+        </li>
+    </div>
+    <script src="script.js"></script>
+
+</body>
+</html>

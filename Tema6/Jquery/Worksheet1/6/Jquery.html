@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+</head>
+<body>
+    <ol>
+        <li>Tortilla</li>
+        <li>Jamón</li>
+        <li>Queso</li>
+    </ol>
+    <ul>
+        <li>CocaCola</li>
+        <li>Leche</li>
+        <li>Té</li>
+    </ul>
+    <button id="boton">Pulsa</button>
+    <script>
+        $(document).ready(function(){
+            $("#boton").click(function(){
+                $("ol li:first-child").hide();
+                $("ul li:first-child").hide();
+
+            });
+        });
+    </script>
+    
+</body>
+</html>
