@@ -1,47 +1,46 @@
 <script setup>
-import HelloWorld from './components/HelloWorld.vue'
-import TheWelcome from './components/TheWelcome.vue'
+  import cabecera from './components/cabecera.vue'
+  import cuerpo from './components/cuerpo.vue'
+  import { ref } from "vue";
+
+  let notas = ref([]);
+  function reciboNuevaNota(nota) {
+    notas.value.push(
+      {
+        id: notas.value.length + 1,
+        texto: nota,
+        fecha: new Date(),
+        prioridad: 0,
+        completada: false
+      }
+    );
+    console.log(notas);
+  }
+
+  function ordenarPorNombre(notas){
+    
+  }
+  function notaCompletada(id){
+    notas.value[id-1].completada = true;
+    console.log(id);
+  }
+
+
 </script>
 
 <template>
   <header>
-    <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" />
 
     <div class="wrapper">
-      <HelloWorld msg="You did it!" />
+      <h1>Inicio</h1>
+      <cabecera @nuevaNota="reciboNuevaNota"></cabecera>
+      <cuerpo :arraynotas="notas" @idNota="notaCompletada"></cuerpo>
+
     </div>
   </header>
 
-  <main>
-    <TheWelcome />
-  </main>
 </template>
 
 <style scoped>
-header {
-  line-height: 1.5;
-}
 
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
-}
-
-@media (min-width: 1024px) {
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-  }
-
-  .logo {
-    margin: 0 2rem 0 0;
-  }
-
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
-}
 </style>
