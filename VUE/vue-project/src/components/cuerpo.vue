@@ -1,19 +1,30 @@
 <script setup>
 defineProps(['atributoPrueba', 'arraynotas'])
-const lanzarEvento = defineEmits(['idNota']);
+const lanzarEvento = defineEmits(['idNota', 'notaid']);
 
-
-
-function marcarcompletada(id) {
+function marcarCompletada(id) {
     lanzarEvento('idNota', id);
+    console.log(id);
+    // notas.completada = true;
+}
+
+function borrarNota(id) {
+    lanzarEvento('notaid', id);
     console.log(id);
     // notas.completada = true;
 }
 </script>
 
 <template>
-    Recibo el atributo {{ arraynotas }}
+    <!-- Recibo el atributo {{ arraynotas }} -->
     <ul v-for="nota in arraynotas" :key="nota.id">
-        <li>{{ nota.texto }} {{ nota.completada }}<button @click="marcarcompletada(nota.id)">Completada</button></li>
+        <li>{{ nota.texto }} {{ nota.prioridad }} {{ nota.fecha }}<button @click="marcarCompletada(nota)">Completada</button><button @click="borrarNota(nota.id)">Eliminar</button></li>
     </ul>
 </template>
+
+
+<style scoped>
+.tachado {
+    text-decoration: line-through;
+}
+</style>
