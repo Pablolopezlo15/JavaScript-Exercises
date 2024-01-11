@@ -1,0 +1,9 @@
+miclave = {
+    apiKey: "AIzaSyAMsFMrcBOd0PDe0WWuychjy01AZxyqZMU",
+    authDomain: "tiendavue-pablolopez.firebaseapp.com",
+    projectId: "tiendavue-pablolopez",
+    storageBucket: "tiendavue-pablolopez.appspot.com",
+    messagingSenderId: "779516547261",
+    appId: "1:779516547261:web:3f1b650464779e3743e7d4",
+    measurementId: "G-HXKQ95K2KB"   
+}

@@ -1,5 +1,5 @@
 {
-  "name": "vuefirebase",
+  "name": "vueconrouter",
   "version": "0.0.0",
   "private": true,
   "type": "module",
@@ -9,10 +9,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "firebase": "^10.7.1",
     "vue": "^3.3.11",
-    "vue-router": "^4.2.5",
-    "vuefire": "^3.1.19"
+    "vue-router": "^4.2.5"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^4.5.2",

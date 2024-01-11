@@ -14,30 +14,30 @@ let file = "";
 function subirAdjunto(file) {
   console.log("subirAdjunto");
   console.log(file.name);
-  const storage = getStorage();
-  const storageRef = ref(storage, file.name);
-  return uploadBytes(storageRef, file).then((snapshot) => {
-    console.log("Archivo subido");
-    return getDownloadURL(snapshot.ref);
-  }).then((downloadURL => {
-    console.log("URL", downloadURL);
-    return downloadURL;
-  }));
+    const storage = getStorage();
+    const storageRef = ref(storage, file.name);
+    uploadBytes(storageRef, file).then((snapshot) => {
+      console.log("Archivo subido");
+      return getDownloadURL(snapshot.ref);
+    }).then((downloadURL => {
+      console.log("URL", downloadURL);
+    }));
 }
 
 
 function altaNota(contenidoNota, file) {
-    console.log("altaNota");
+  console.log("altaNota");
 
-    const docRef = addDoc(collection(db, "todos"), {
-        texto: contenidoNota,
-        URL: file,
-        prioridad: "baja",
-        completada: false,
-        fecha: new Date(),
-    }).then((docRef) => {
-        console.log("Document written with ID: ", docRef.id);
-    });
+  const docRef = addDoc(collection(db, "todos"), {
+    texto: contenidoNota,
+    URL: file,
+    prioridad: "baja",
+    completada: false,
+    fecha: new Date(),
+  }).then((docRef) => {
+    console.log("Document written with ID: ", docRef.id);
+  });
+
 }
 
 
@@ -111,10 +111,10 @@ function tiempoDesdeCreacion(timestamp) {
 
 <template>
 
-<cabecera @nuevaNota="altaNota" @borrarCompletadas="borrarCompletadas" @nuevoArchivo="subirAdjunto"></cabecera>
+  <cabecera @nuevaNota="altaNota" @borrarCompletadas="borrarCompletadas" @nuevoArchivo="subirAdjunto"></cabecera>
   <!-- <input type="file" id="subirFichero" name="adjunto" accept="image/png, image/jpg" @change="subirAjunto($event)"> -->
 
-  <ul class="notas">
+  <ul>
     <li v-for="todo in todos" :key="todo.id">
       <h4> {{ todo.texto }} </h4>
       <p>{{ todo.prioridad }} Creada hace: {{ tiempoDesdeCreacion(todo.fecha) }} min {{ todo.completada }}</p>
