@@ -6,10 +6,10 @@ import { VueFire, VueFireAuth } from 'vuefire'
 import { firebaseApp } from './firebase'
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 
-
 import privada from './components/privada.vue'
 import Inicio from './components/Inicio.vue'
 import Administracion from './components/Administracion.vue';
+import IniciaSesion from './components/iniciarsesion.vue';
 import { createRouter, createWebHistory, onBeforeRouteUpdate } from 'vue-router'
 
 const routes = [
@@ -25,6 +25,11 @@ const routes = [
   { 
     path: '/administracion', 
     component: Administracion 
+  },
+  {
+    path: '/iniciarsesion',
+    name: 'iniciarsesion',
+    component: IniciaSesion,
   },
 ]
 

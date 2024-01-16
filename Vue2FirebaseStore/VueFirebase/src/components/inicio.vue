@@ -1,10 +1,8 @@
 <script setup>
 import { getAuth, signOut } from "firebase/auth";
-import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
+import { GoogleAuthProvider, signInWithPopup, signInWithEmailAndPassword } from "firebase/auth";
 import { useRouter } from "vue-router";
-
-import { ref } from 'vue'
-const nombreUsuario = ref('')
+import { ref } from "vue";
 
 import cabecera from './cabecera.vue';
 
@@ -12,52 +10,35 @@ const auth = getAuth();
 const provider = new GoogleAuthProvider();
 const router = useRouter();
 
-function iniciarSesion() {
-    console.log("iniciarSesion");
-    signInWithPopup(auth, provider)
-  .then((result) => {
-    // This gives you a Google Access Token. You can use it to access the Google API.
-    const credential = GoogleAuthProvider.credentialFromResult(result);
-    const token = credential.accessToken;
-    // The signed-in user info.
-    const user = result.user;
-    let nombreUsuario = user.displayName;
-    console.log(nombreUsuario);
+let user = ref(auth.currentUser);
 
-    // router.push({ name: "privada", params: { nombreUsuario } });
-    return router.push({ name: 'privada', params: { username: nombreUsuario } });
-
-    // router.push({ name: 'privada', params: { username: nombreUsuario } });
-  
-
-    // IdP data available using getAdditionalUserInfo(result)
-    // ...
-  }).catch((error) => {
-    // Handle Errors here.
-    const errorCode = error.code;
-    const errorMessage = error.message;
-    // The email of the user's account used.
-    const email = error.customData.email;
-    // The AuthCredential type that was used.
-    const credential = GoogleAuthProvider.credentialFromError(error);
-    // ...
-  });
-}
-
-function cerrarSesion() {
-
-    signOut(auth).then(() => {
-    // Sign-out successful.
-    console.log("sesion cerrada");
-    }).catch((error) => {
-    // An error happened.
-    });
-}
 
 </script>
 
 <template>
-    <h1>Inicia Sesion</h1>
-    <button @click="iniciarSesion">Iniciar Sesion</button>
+    <cabecera></cabecera>
+      <!-- <header class="header">
+        <h1>To - Do List</h1>
+
+        <ul v-if="user">
+            <p>Bienvenido, {{ user.displayName }}.</p>
+            <img class="foto" :src="user.photoURL" alt="">
+            <button @click="cerrarSesion">Cerrar Sesión</button>
+        </ul>
+        <ul v-else>
+          <button @click="iniciarSesion">Iniciar Sesion con <i class="ri-google-fill"></i></button>     
+        </ul>
+    </header> -->
+
+
+    <!-- <h1>Inicia Sesion</h1>
+    <button @click="iniciarSesion">Iniciar Sesion con <i class="ri-google-fill"></i></button>
     <button @click="cerrarSesion">Cerrar Sesion</button>
+    <label for="email">Email: </label>
+    <input type="text" id="email" name="email" v-model="email">
+    <label for="password">Password: </label>
+    <input type="password" id="password" name="password" v-model="password">
+    <button @click="iniciarSesionCorreo">Iniciar Sesion</button> -->
+
+    <h1>LANDING PAGE</h1>
 </template>

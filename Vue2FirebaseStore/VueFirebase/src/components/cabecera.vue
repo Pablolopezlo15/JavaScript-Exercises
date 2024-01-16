@@ -1,38 +1,64 @@
 <script setup>
 import { useRouter } from "vue-router";
 import { getAuth, signOut } from "firebase/auth";
-
-import Inicio from "./inicio.vue";
+import { ref } from "vue";
+import { GoogleAuthProvider, signInWithPopup, signInWithEmailAndPassword } from "firebase/auth";
 const lanzarEvento = defineEmits(["nuevaNota", "borrarCompletadas", "nuevoArchivo"] );
 
-let contenidoNota = "";
-let file = "";
+const auth = getAuth();
+const provider = new GoogleAuthProvider();
 
-function altaNota() {
-    console.log("altaNota");
-    lanzarEvento("nuevaNota", contenidoNota, file);
-    contenidoNota = "";
-    file = "";
-}
-
-function borrarNotasCompletadas() {
-    console.log("borrarNotasCompletadas");
-    lanzarEvento("borrarCompletadas");
-}
-
-function subirAdjunto(event) {
-    file = event.target.files[0];
-    lanzarEvento("nuevoArchivo", file);
-    console.log(file);
-    file = "";
+let user = ref(auth.currentUser);
+if (user) {
+    let uid = user.uid;
 }
 
 const router = useRouter();
 
+function iniciarSesion() {
+    console.log("iniciarSesion");
+    signInWithPopup(auth, provider)
+    .then((result) => {
+      // This gives you a Google Access Token. You can use it to access the Google API.
+      const credential = GoogleAuthProvider.credentialFromResult(result);
+      const token = credential.accessToken;
+      // The signed-in user info.
+      const user = result.user;
+      console.log(user.displayName);
+      router.push("/privada");
+      // IdP data available using getAdditionalUserInfo(result)
+      // ...
+  }).catch((error) => {
+    // Handle Errors here.
+    const errorCode = error.code;
+    const errorMessage = error.message;
+    // The email of the user's account used.
+    const email = error.customData.email;
+    // The AuthCredential type that was used.
+    const credential = GoogleAuthProvider.credentialFromError(error);
+    // ...
+  });
+}
+
+function iniciarSesionCorreo(email, password) {
+    console.log("iniciarSesionCorreo");
+    signInWithEmailAndPassword(auth, email, password)
+      .then((userCredential) => {
+        // Signed in 
+        const user = userCredential.user;
+        // ...
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+      });
+}
+
 function cerrarSesion() {
-    const auth = getAuth();
+
     signOut(auth).then(() => {
     // Sign-out successful.
+    user = null;
     console.log("sesion cerrada");
     router.push("/");
     }).catch((error) => {
@@ -45,15 +71,15 @@ function cerrarSesion() {
 <template>
     <header class="header">
         <h1>To - Do List</h1>
-        <ul>
-            <p>Bienvenido </p>
+        <ul v-if="user">
+            <p>Bienvenido, {{ user.displayName }}.</p>
+            <img class="foto" :src="user.photoURL" alt="">
             <button @click="cerrarSesion">Cerrar Sesión</button>
         </ul>
+        <ul v-else>
+            <RouterLink to="/iniciarsesion">Iniciar Sesion</RouterLink>
+            <RouterView></RouterView>
+            <button @click="iniciarSesion">Iniciar Sesion con <i class="ri-google-fill"></i></button>     
+        </ul>
     </header>
-
-    <nav>
-        <input type="text" v-model="contenidoNota" @keyup.enter="altaNota()" placeholder="Escribe tu nota"><button @click="altaNota">Alta Nota</button>
-        <input type="file" id="subirFichero" name="adjunto" accept="image/png, image/jpg" @change="subirAdjunto($event)"> 
-        <button @click="borrarNotasCompletadas">Borrar Completadas</button>
-    </nav>
 </template>
